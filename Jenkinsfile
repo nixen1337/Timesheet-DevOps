@@ -27,5 +27,10 @@ pipeline {
   -Dsonar.login=b0f501313933656aed1e036e78366489cd7af0e9'
                  }
         }    
+        stage('NEXUS'){
+            steps {
+                sh 'mvn deploy'
+                  }
+        }          
    }
 }
