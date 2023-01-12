@@ -5,6 +5,7 @@ pipeline {
         stage('Git') {
             steps {
                 echo "Getting Project from Git";
+                sh "rmdir /s /q Timesheet-DevOps"
                 sh "git clone https://github.com/nixen1337/Timesheet-DevOps.git"
                   }
             }
