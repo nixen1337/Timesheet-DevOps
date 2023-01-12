@@ -11,25 +11,25 @@ pipeline {
             
         stage('MVN Clean'){  
             steps {
-                sh "mvn clean -f Timesheet-DevOps"
+                sh "mvn clean"
                   }
         }        
         
         stage('MVN Install'){
             steps {
-                sh "mvn install -f Timesheet-DevOps"
+                sh "mvn install"
                   }
         }       
         
         stage('MVN Test'){
             steps {
-                sh "mvn test -f Timesheet-DevOps"
+                sh "mvn test"
                   }
         }          
         
         stage('MVN Package'){
             steps {
-                sh "mvn package -f Timesheet-DevOps"
+                sh "mvn package"
                   }
         }          
         
