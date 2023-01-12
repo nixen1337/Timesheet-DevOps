@@ -2,21 +2,31 @@ pipeline {
     agent any
     
     stages {
-        stage('GIT') {
+        stage('Git') {
             steps {
                 echo "Getting Project from Git";
-                
+                sh "git clone https://github.com/nixen1337/Timesheet-DevOps.git"
                   }
             }
             
-        stage('MVN CLEAN'){  
+        stage('MVN Clean'){  
             steps {
-                sh 'mvn clean'
+                sh "mvn clean -f Timesheet-DevOps'
                   }
         }        
-        stage('MVN COMPILE'){
+        stage('MVN Install'){
             steps {
-                sh 'mvn compile'
+                sh 'mvn install -f Timesheet-DevOps'
+                  }
+        }       
+        stage('MVN Test'){
+            steps {
+                sh 'mvn test -f Timesheet-DevOps'
+                  }
+        }          
+        stage('MVN Package'){
+            steps {
+                sh 'mvn package -f Timesheet-DevOps'
                   }
         }          
         stage('MVN SONARQUBE'){
@@ -27,7 +37,7 @@ pipeline {
   -Dsonar.login=b0f501313933656aed1e036e78366489cd7af0e9'
                  }
         }    
-        stage('NEXUS'){
+        stage('MVN NEXUS'){
             steps {
                 sh 'mvn deploy -Dmaven.test.skip=true'
                   }
