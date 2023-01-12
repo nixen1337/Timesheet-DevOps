@@ -14,21 +14,25 @@ pipeline {
                 sh "mvn clean -f Timesheet-DevOps'
                   }
         }        
+        
         stage('MVN Install'){
             steps {
                 sh 'mvn install -f Timesheet-DevOps'
                   }
         }       
+        
         stage('MVN Test'){
             steps {
                 sh 'mvn test -f Timesheet-DevOps'
                   }
         }          
+        
         stage('MVN Package'){
             steps {
                 sh 'mvn package -f Timesheet-DevOps'
                   }
         }          
+        
         stage('MVN SONARQUBE'){
             steps{
                 sh 'mvn sonar:sonar \
