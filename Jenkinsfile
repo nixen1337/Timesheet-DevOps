@@ -39,7 +39,7 @@ pipeline {
                 sh 'mvn sonar:sonar \
   -Dsonar.projectKey=JenkinsAchatProject \
   -Dsonar.host.url=http://172.20.10.10:9000 \
-  -Dsonar.login=270f168c3995ffef215a77dba1dc38542daf5569'
+  -Dsonar.login=372e3ff11263b437e5042ec0fa5aed1d7ce5fbcd'
                  }
         }    
         stage('MVN NEXUS'){
